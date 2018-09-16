@@ -1,4 +1,4 @@
-package somename;
+package com.microfocus;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +17,7 @@ import org.apache.commons.csv.*;
 
 import unittesting.*;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.nio.file.FileSystems;
@@ -54,7 +55,7 @@ public class LeanFtTest extends UnitTestClassBase {
 
     @Test
     public void test() throws GeneralLeanFtException, IOException {
-        Reader reader = Files.newBufferedReader(Paths.get("./resources/search.csv"));
+        Reader reader = new FileReader("./resources/search.csv");
         CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT);
         Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
